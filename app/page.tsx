@@ -26,17 +26,31 @@ export default function Page() {
       <div className="mx-auto w-full max-w-5xl sm:px-6 lg:px-8">
         <div className="relative isolate overflow-hidden bg-gray-900 px-6 py-24 shadow-2xl rounded-lg sm:rounded-3xl sm:px-24 xl:py-32 flex items-center flex-col">
           <h2 className="max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Get invited to a team
+            from.app is for sale
           </h2>
 
           <p className="mt-2 max-w-xl text-center text-lg leading-8 text-gray-300">
-            Type your email address to get invited to a team.
+            Please fill in the form below to make an offer.
           </p>
 
           <form
-            className="mt-10 flex max-w-md gap-4 items-start w-full"
+            className="mt-10 flex max-w-md gap-4 w-full flex-col"
             action={dispatch}
           >
+            <label htmlFor="name" className="sr-only">
+              Name
+            </label>
+
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              placeholder="Name"
+              autoComplete="name"
+              className="w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+            />
+
             <label htmlFor="email" className="sr-only">
               Email address
             </label>
@@ -46,9 +60,36 @@ export default function Page() {
               name="email"
               type="email"
               required
-              defaultValue="delivered@resend.dev"
-              placeholder="jane@example.com"
+              placeholder="Email"
               autoComplete="email"
+              className="w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+            />
+
+            <label htmlFor="phone" className="sr-only">
+              Phone number
+            </label>
+
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              required
+              placeholder="Phone number"
+              autoComplete="phone"
+              className="w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+            />
+
+            <label htmlFor="offer" className="sr-only">
+              Offer price in USD
+            </label>
+
+            <input
+              id="offer"
+              name="offer"
+              type="number"
+              required
+              placeholder="Offer price in USD"
+              autoComplete="offer"
               className="w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
             />
 
@@ -99,7 +140,7 @@ function SubmitButton() {
         pending && "opacity-50 cursor-not-allowed"
       )}
     >
-      Invite
+      Make offer
     </button>
   );
 }
